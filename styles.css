@@ -1972,3 +1972,113 @@ main section[id]{scroll-margin-top:clamp(148px,13.75vw,286px)}
   .about-portrait img{width:210px!important;height:210px!important}
   .contact-asako img{width:210px!important;height:210px!important}
 }
+
+/* =========================================================
+   v50 — 公開後のレスポンシブ安定化
+   ========================================================= */
+
+/* PC／中間幅では、ロゴとナビを別軸にしてナビ全体を画面中央へ戻す。 */
+@media (min-width:981px){
+  .site-header{
+    display:grid;
+    grid-template-columns:minmax(96px,1fr) auto minmax(96px,1fr);
+  }
+  .brand--icon-only{grid-column:1;justify-self:start}
+  .global-nav{grid-column:2;justify-self:center}
+}
+
+@media (min-width:981px) and (max-width:1100px){
+  .global-nav{
+    gap:clamp(19px,2vw,23px);
+    font-size:clamp(1.06rem,1.75vw,1.14rem);
+  }
+  .nav-cta{
+    min-width:172px;
+    min-height:78px;
+    padding-inline:1.65rem;
+    font-size:1.08rem;
+  }
+}
+
+/* 現在地になっても、コンタクトCTAの色と濃度は変えない。 */
+.global-nav>.nav-cta,
+.global-nav>.nav-cta:link,
+.global-nav>.nav-cta:visited,
+.global-nav>.nav-cta:hover,
+.global-nav>.nav-cta:focus,
+.global-nav>.nav-cta:focus-visible,
+.global-nav>.nav-cta:active,
+.global-nav>.nav-cta.is-current,
+.global-nav>.nav-cta[aria-current],
+.mobile-nav>.mobile-contact-button,
+.mobile-nav>.mobile-contact-button:link,
+.mobile-nav>.mobile-contact-button:visited,
+.mobile-nav>.mobile-contact-button:hover,
+.mobile-nav>.mobile-contact-button:focus,
+.mobile-nav>.mobile-contact-button:focus-visible,
+.mobile-nav>.mobile-contact-button:active,
+.mobile-nav>.mobile-contact-button.is-current,
+.mobile-nav>.mobile-contact-button[aria-current]{
+  background:var(--sumi-purple)!important;
+  color:var(--washi-light)!important;
+  opacity:1!important;
+  filter:none!important;
+}
+
+/* 右の手書き画像を基準に、左列を少しだけ短くして上下を均等に収める。 */
+.hero--v18 .hero-message-cluster{
+  align-items:start!important;
+}
+.hero--v18 .hero-side-label--left{
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:center!important;
+  justify-content:flex-start!important;
+  writing-mode:horizontal-tb!important;
+  height:calc(var(--hero-phrase-height) - 16px)!important;
+  margin-top:8px!important;
+  gap:max(0px,calc((var(--hero-phrase-height) - 16px - 8em)/7))!important;
+  line-height:1!important;
+  letter-spacing:0!important;
+  paint-order:stroke fill;
+  -webkit-text-stroke:1px rgba(237,238,224,.94);
+  text-shadow:0 0 3px rgba(237,238,224,.96),0 0 7px rgba(237,238,224,.78)!important;
+}
+.hero--v18 .hero-side-label--left span{
+  display:block!important;
+  flex:0 0 1em!important;
+  width:1em;
+  height:1em!important;
+  line-height:1!important;
+  text-align:center;
+}
+.hero--v18 .hero-side-label--center{
+  margin-top:8px!important;
+  gap:max(0px,calc((var(--hero-phrase-height) - 16px - 8em)/7))!important;
+}
+.hero--v18 .hero-handwriting--phrase{
+  padding-top:0!important;
+}
+
+/* タイトルをリンクと分かる程度にだけ示し、カードの静けさは保つ。 */
+.potalk-link{
+  color:inherit!important;
+  text-decoration-line:underline;
+  text-decoration-color:rgba(75,94,120,.32);
+  text-decoration-thickness:1px;
+  text-underline-offset:.28em;
+  transition:color .2s ease,text-decoration-color .2s ease;
+}
+.potalk-link:hover,.potalk-link:focus-visible{
+  color:var(--sumi-purple)!important;
+  text-decoration-color:currentColor;
+}
+
+/* タップ表示時は、チップの場所に左右されず本文全体を画面内へ収める。 */
+.tip-popover{
+  translate:var(--tip-nudge-x,0px) 0;
+}
+.tip-popover.is-below{
+  top:calc(100% + 10px);
+  bottom:auto;
+}

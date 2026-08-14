@@ -56,7 +56,9 @@
 
   const setCurrentSection = (id) => {
     sectionLinks.forEach((link) => {
-      const current = link.getAttribute('href') === `#${id}`;
+      // コンタクトは現在地表示ではなく、常に同じ見た目のCTAとして扱う。
+      const isContactCta = link.matches('.nav-cta, .mobile-contact-button');
+      const current = !isContactCta && link.getAttribute('href') === `#${id}`;
       link.classList.toggle('is-current', current);
       if (current) link.setAttribute('aria-current', 'location');
       else link.removeAttribute('aria-current');
@@ -83,6 +85,33 @@
     tipTimers.delete(tip);
   };
 
+  const resetTipPosition = (tip) => {
+    const popover = tip.querySelector('.tip-popover');
+    popover?.style.removeProperty('--tip-nudge-x');
+    popover?.classList.remove('is-below');
+  };
+
+  // チップの位置にかかわらず、ポップオーバー全体を画面内へ収める。
+  const keepTipInViewport = (tip) => {
+    const popover = tip.querySelector('.tip-popover');
+    if (!popover) return;
+    popover.style.setProperty('--tip-nudge-x', '0px');
+    popover.classList.remove('is-below');
+    window.requestAnimationFrame(() => {
+      const safeInset = 16;
+      const firstRect = popover.getBoundingClientRect();
+      if (firstRect.top < safeInset) popover.classList.add('is-below');
+
+      const rect = popover.getBoundingClientRect();
+      let shift = 0;
+      if (rect.left < safeInset) shift = safeInset - rect.left;
+      if (rect.right + shift > window.innerWidth - safeInset) {
+        shift -= rect.right + shift - (window.innerWidth - safeInset);
+      }
+      popover.style.setProperty('--tip-nudge-x', `${Math.round(shift)}px`);
+    });
+  };
+
   const closeTip = (tip, softly = false) => {
     clearTipTimer(tip);
     const button = tip.querySelector('.tip-chip');
@@ -91,6 +120,7 @@
       const timer = window.setTimeout(() => {
         tip.classList.remove('is-open', 'is-fading');
         button?.setAttribute('aria-expanded', 'false');
+        resetTipPosition(tip);
         tipTimers.delete(tip);
       }, 900);
       tipTimers.set(tip, timer);
@@ -98,6 +128,7 @@
     }
     tip.classList.remove('is-open', 'is-fading');
     button?.setAttribute('aria-expanded', 'false');
+    resetTipPosition(tip);
   };
 
   const showTimedTip = (tip) => {
@@ -108,6 +139,7 @@
     tip.classList.remove('is-fading');
     tip.classList.add('is-open');
     tip.querySelector('.tip-chip')?.setAttribute('aria-expanded', 'true');
+    keepTipInViewport(tip);
 
     const characterCount = tip.querySelector('.tip-popover')?.textContent?.replace(/\s/g, '').length || 0;
     const readingTime = Math.min(11000, Math.max(6200, characterCount * 130 + 2600));
@@ -121,6 +153,9 @@
       event.preventDefault();
       event.stopPropagation();
       showTimedTip(tip);
+    });
+    tip.addEventListener('mouseenter', () => {
+      if (finePointer.matches) keepTipInViewport(tip);
     });
   });
 
@@ -221,5 +256,9 @@
 
   window.addEventListener('resize', () => {
     if (window.innerWidth > 980) closeMenu();
+    tips.forEach((tip) => {
+      if (tip.classList.contains('is-open')) keepTipInViewport(tip);
+      else resetTipPosition(tip);
+    });
   });
 })();
