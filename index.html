@@ -1,0 +1,388 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="アサコの手書き万年筆文字。名入れ、命名書、メッセージ、手紙の代筆、サイン・署名デザインなどを承ります。">
+  <meta name="theme-color" content="#522F60">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon-180.png">
+  <link rel="stylesheet" href="styles.css">
+  <title>アサコ｜手書き万年筆文字</title>
+</head>
+<body>
+  <svg width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute;overflow:hidden">
+    <defs>
+      <filter id="hero-phrase-edge" x="-80%" y="-10%" width="260%" height="120%" color-interpolation-filters="sRGB">
+        <feMorphology in="SourceAlpha" operator="dilate" radius="1.6" result="edge"/>
+        <feGaussianBlur in="edge" stdDeviation="3.6" result="blur"/>
+        <feFlood flood-color="#edeee0" flood-opacity=".86" result="glow-color"/>
+        <feComposite in="glow-color" in2="blur" operator="in" result="soft-glow"/>
+        <feFlood flood-color="#edeee0" result="edge-color"/>
+        <feComposite in="edge-color" in2="edge" operator="in" result="solid-edge"/>
+        <feMerge><feMergeNode in="soft-glow"/><feMergeNode in="solid-edge"/><feMergeNode in="SourceGraphic"/></feMerge>
+      </filter>
+      <filter id="hero-phrase-edge-mobile" x="-90%" y="-10%" width="280%" height="120%" color-interpolation-filters="sRGB">
+        <feMorphology in="SourceAlpha" operator="dilate" radius="2.4" result="edge"/>
+        <feGaussianBlur in="edge" stdDeviation="4.5" result="blur"/>
+        <feFlood flood-color="#edeee0" flood-opacity=".9" result="glow-color"/>
+        <feComposite in="glow-color" in2="blur" operator="in" result="soft-glow"/>
+        <feFlood flood-color="#edeee0" result="edge-color"/>
+        <feComposite in="edge-color" in2="edge" operator="in" result="solid-edge"/>
+        <feMerge><feMergeNode in="soft-glow"/><feMergeNode in="solid-edge"/><feMergeNode in="SourceGraphic"/></feMerge>
+      </filter>
+    </defs>
+  </svg>
+  <div class="paper-grain" aria-hidden="true"></div>
+
+  <header class="site-header" id="top">
+    <a class="brand brand--icon-only" href="#top" aria-label="アサコ 手書き万年筆文字 トップへ">
+      <img src="assets/favicon-thin.png" alt="" width="84" height="84">
+      <span class="sr-only">アサコ</span>
+    </a>
+
+    <nav class="global-nav" aria-label="グローバルナビゲーション">
+      <a href="#about" data-section-link>アバウト</a>
+      <a href="#services" data-section-link>オーダー</a>
+      <a href="#examples" data-section-link>ワークス</a>
+      <a href="#flow" data-section-link>フロー</a>
+      <a href="#features" data-section-link>レタリング</a>
+      <a class="nav-cta nav-cta-button" href="#contact" data-section-link>コンタクト</a>
+    </nav>
+
+    <button class="menu-button" type="button" aria-expanded="false" aria-controls="mobile-nav">
+      <span></span><span></span><span></span><span class="sr-only">メニュー</span>
+    </button>
+  </header>
+
+  <nav id="mobile-nav" class="mobile-nav" hidden aria-label="グローバルナビゲーション（モバイル）">
+    <a href="#about" data-section-link>アバウト</a>
+    <a href="#services" data-section-link>オーダー</a>
+    <a href="#examples" data-section-link>ワークス</a>
+    <a href="#flow" data-section-link>フロー</a>
+    <a href="#features" data-section-link>レタリング</a>
+    <a class="mobile-contact-button" href="#contact" data-section-link>コンタクト</a>
+  </nav>
+
+  <main>
+    <section class="hero hero--v18" aria-label="メインビジュアル">
+      <div class="hero-eyecatch" aria-label="酢漿草のあしらい">
+        <img src="assets/katabami-transparent.png" alt="" aria-hidden="true">
+      </div>
+
+      <div class="hero-message-cluster" aria-label="アサコの手書き万年筆文字、こころにとどく、ことばたち">
+        <p class="hero-side-label hero-side-label--left" aria-label="手書き万年筆文字"><span aria-hidden="true">手</span><span aria-hidden="true">書</span><span aria-hidden="true">き</span><span aria-hidden="true">万</span><span aria-hidden="true">年</span><span aria-hidden="true">筆</span><span aria-hidden="true">文</span><span aria-hidden="true">字</span></p>
+        <p class="hero-side-label hero-side-label--center"><span>ア</span><span>サ</span><span>コ</span><span class="small-no">の</span></p>
+        <div class="hero-handwriting hero-handwriting--phrase">
+          <img src="assets/hero-phrase-repaired.png" alt="こころにとどく、ことばたち">
+        </div>
+      </div>
+
+      <div class="hero-pen-area" aria-label="アサコが使用している万年筆とペンケースの写真">
+        <img src="assets/fountain-pen-radial-v47.png" alt="アサコが使用している万年筆とペンケース" class="hero-pen hero-pen--circle">
+      </div>
+
+    </section>
+
+    <section class="section about" id="about" aria-labelledby="about-title">
+      <header class="section-heading">
+        <div>
+          <p class="eyebrow">アバウト</p>
+          <h1 id="about-title">アサコについて</h1>
+        </div>
+        <img src="assets/katabami-transparent.png" alt="" class="katabami" aria-hidden="true">
+      </header>
+
+      <div class="about-layout">
+        <div class="about-copy">
+          <p>手書きの万年筆文字で、想いをやさしく伝えるお手伝いをしています。</p>
+          <p>整いすぎない線の揺らぎ、インクの濃淡、紙の余白。</p>
+          <p>その一つひとつを大切にしながら、心にそっと届く一枚をお書きします。</p>
+          <p>名入れ、メッセージ、お手紙、サインなど。</p>
+          <p>「こんなふうに伝えたい」というお気持ちから、ご相談ください。</p>
+
+          <div class="secret-tip secret-tip--left">
+            <button class="tip-chip" type="button" aria-expanded="false">
+              <span aria-hidden="true">✦</span> 実はこんな人
+            </button>
+            <div class="tip-popover" role="tooltip">
+              <p class="tip-label">アサコメモ</p>
+              <p>最近のマイブームはクリームティーです。スコーンと紅茶の時間を楽しんでいます。</p>
+            </div>
+          </div>
+        </div>
+
+        <figure class="about-portrait">
+          <img src="assets/asako-bustup-soft-v11.png" alt="アサコのアイコン">
+        </figure>
+      </div>
+    </section>
+
+    <section class="section section-band" id="services" aria-labelledby="services-title">
+      <header class="section-heading section-heading--center">
+        <div>
+          <p class="eyebrow">オーダー</p>
+          <h2 id="services-title">ご依頼いただけるもの</h2>
+        </div>
+      </header>
+      <p class="section-lead section-lead--center">文字だけでなく、お贈りになる場面や、贈り先のお相手のことまで考えながらお作りします。</p>
+
+      <div class="service-grid">
+        <article class="service-card">
+          <span class="service-no">01</span>
+          <h3>名入れ・命名書</h3>
+          <p>お名前や大切なことばを、記念に残る一枚に。</p>
+          <a href="#example-name" class="service-link">作品例を見る <span aria-hidden="true">→</span></a>
+        </article>
+        <article class="service-card">
+          <span class="service-no">02</span>
+          <h3>メッセージ・色紙</h3>
+          <p>お祝い、感謝、応援など、想いに合う文字を。</p>
+          <a href="#example-message" class="service-link">作品例を見る <span aria-hidden="true">→</span></a>
+        </article>
+        <article class="service-card">
+          <span class="service-no">03</span>
+          <h3>お手紙・便箋代筆</h3>
+          <p>手書きで届けたい文章を、丁寧に代筆します。</p>
+          <a href="#example-letter" class="service-link">作品例を見る <span aria-hidden="true">→</span></a>
+        </article>
+        <article class="service-card">
+          <span class="service-no">04</span>
+          <h3>サイン・署名デザイン</h3>
+          <p>活動名やお名前を、世界にひとつのサインへ。</p>
+          <a href="#example-sign" class="service-link">作品例を見る <span aria-hidden="true">→</span></a>
+        </article>
+        <article class="service-card">
+          <span class="service-no">05</span>
+          <h3>その他のご依頼</h3>
+          <p>文字に関するご相談を、内容に合わせて承ります。</p>
+          <a href="#example-other" class="service-link">作品例を見る <span aria-hidden="true">→</span></a>
+        </article>
+      </div>
+
+      <div class="secret-tip secret-tip--center">
+        <button class="tip-chip" type="button" aria-expanded="false">
+          <span aria-hidden="true">✦</span> おすすめ
+        </button>
+        <div class="tip-popover" role="tooltip">
+          <p class="tip-label">レタリング・チップ</p>
+          <p>短いひとことは、余白をたっぷり取ると 万年筆の線やインクの表情がより引き立ちます。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section examples" id="examples" aria-labelledby="examples-title">
+      <header class="section-heading section-heading--center section-heading--works">
+        <div>
+          <p class="eyebrow">ワークス</p>
+          <h2 id="examples-title">作品例</h2>
+        </div>
+        <img src="assets/star-mark-transparent.png" alt="" class="works-star" aria-hidden="true">
+      </header>
+      <p class="section-lead section-lead--center examples-lead">見本に加え、それぞれのご依頼について、掲載許可をいただいた作品は実際の作品写真を掲載していきます。</p>
+
+      <div class="example-list">
+        <article class="example-row" id="example-name">
+          <div class="example-image example-image--placeholder"><span class="placeholder-copy"><span class="placeholder-title">名入れ・命名書</span><span class="placeholder-note">作品写真をここへ</span></span></div>
+          <div class="example-copy"><p class="eyebrow">01</p><h3>名入れ・命名書</h3><p>紙、インク、文字数など、作品ごとの違いも一緒にご紹介できる枠です。</p></div>
+        </article>
+        <article class="example-row example-row--reverse" id="example-message">
+          <div class="example-image example-image--placeholder"><span class="placeholder-copy"><span class="placeholder-title">メッセージ・色紙</span><span class="placeholder-note">作品写真をここへ</span></span></div>
+          <div class="example-copy"><p class="eyebrow">02</p><h3>メッセージ・色紙</h3><p>贈る場面や、文字に込めた意図を短く添えると作品の魅力が伝わります。</p></div>
+        </article>
+        <article class="example-row" id="example-letter">
+          <div class="example-image example-image--placeholder"><span class="placeholder-copy"><span class="placeholder-title">お手紙・便箋代筆</span><span class="placeholder-note">作品写真をここへ</span></span></div>
+          <div class="example-copy"><p class="eyebrow">03</p><h3>お手紙・便箋代筆</h3><p>文章量の異なる例を置くと、依頼後の仕上がりをイメージしていただきやすくなります。</p></div>
+        </article>
+        <article class="example-row example-row--reverse" id="example-sign">
+          <div class="example-image example-image--placeholder"><span class="placeholder-copy"><span class="placeholder-title">サイン・署名デザイン</span><span class="placeholder-note">作品写真をここへ</span></span></div>
+          <div class="example-copy"><p class="eyebrow">04</p><h3>サイン・署名デザイン</h3><p>完成形だけでなく、ラフから仕上がりまでを見せる使い方にも向いています。</p></div>
+        </article>
+        <article class="example-row" id="example-other">
+          <div class="example-image example-image--placeholder"><span class="placeholder-copy"><span class="placeholder-title">その他のご依頼</span><span class="placeholder-note">作品写真をここへ</span></span></div>
+          <div class="example-copy"><p class="eyebrow">05</p><h3>その他のご依頼</h3><p>定型商品に収まらないご相談も、実例が増えましたらこちらに順次掲載します。</p></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section section-band" id="flow" aria-labelledby="flow-title">
+      <header class="section-heading section-heading--center">
+        <div>
+          <p class="eyebrow">フロー</p>
+          <h2 id="flow-title">ご依頼の流れ</h2>
+        </div>
+      </header>
+
+      <div class="flow-grid">
+        <article><b>1</b><h3>ご相談・お問い合わせ</h3><p>お問い合わせフォームから、ご希望の内容や用途をお聞かせください。</p></article>
+        <article><b>2</b><h3>内容の確認・お見積り</h3><p>内容・仕様・納期を確認し、お見積りをご案内します。</p></article>
+        <article><b>3</b><h3>ご注文・お支払い</h3><p>内容をご確認いただき、ご注文とお支払いをお願いします。</p></article>
+        <article><b>4</b><h3>制作</h3><p>一文字ずつ、心を込めて制作します。</p></article>
+        <article><b>5</b><h3>納品</h3><p>完成品をご確認後、丁寧にお届けします。</p></article>
+      </div>
+
+      <div class="secret-tip secret-tip--right">
+        <button class="tip-chip" type="button" aria-expanded="false">
+          <span aria-hidden="true">✦</span> ご相談のコツ
+        </button>
+        <div class="tip-popover" role="tooltip">
+          <p class="tip-label">オーダー・チップ</p>
+          <p>ご用途・贈り先のお相手・お好みの雰囲気を教えていただけると、イメージを合わせやすくなります。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="features" aria-labelledby="features-title">
+      <header class="section-heading section-heading--center">
+        <div>
+          <p class="eyebrow">レタリング</p>
+          <h2 id="features-title">アサコの文字の特徴</h2>
+        </div>
+      </header>
+
+      <div class="feature-grid">
+        <article>
+          <span class="feature-mark" aria-hidden="true">◒</span>
+          <h3>万年筆ならではの表情</h3>
+          <p>インクの濃淡やにじみも、その一枚だけの表情として生かします。</p>
+        </article>
+        <article>
+          <span class="feature-mark" aria-hidden="true">❤︎</span>
+          <h3>やさしく伝わる文字</h3>
+          <p>柔らかな線と余白を大切に、想いがそっと届く文字を目指します。</p>
+        </article>
+        <article>
+          <img src="assets/katabami-transparent.png" alt="" class="feature-katabami" aria-hidden="true">
+          <h3>心を込めた手書き</h3>
+          <p>一枚一枚、ご用途と贈り先のお相手を思いながら丁寧に書きます。</p>
+        </article>
+        <article>
+          <span class="feature-mark" aria-hidden="true">▣</span>
+          <h3>インクの色も楽しむ</h3>
+          <p>内容や雰囲気に合わせ、インクの色もご相談いただけます。</p>
+        </article>
+      </div>
+
+      <div class="secret-tip secret-tip--center">
+        <button class="tip-chip" type="button" aria-expanded="false">
+          <span aria-hidden="true">✦</span> 小さなこだわり
+        </button>
+        <div class="tip-popover" role="tooltip">
+          <p class="tip-label">ディテール</p>
+          <p>文字そのものだけでなく、紙の余白まで含めて一枚の表情になるように整えます。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact section-band" id="contact" aria-labelledby="contact-title">
+      <div class="contact-shell">
+        <div class="contact-asako">
+          <img src="assets/asako-bustup-soft-v11.png" alt="アサコのアイコン">
+        </div>
+        <div class="contact-copy">
+          <p class="eyebrow">コンタクト</p>
+          <h2 id="contact-title">あなたのお声をお聴かせください。</h2>
+          <p>「こんな文字をお願いできますか？」というご相談からで大丈夫です。ご用途やお贈りになりたいお気持ちをお聴かせください。</p>
+
+          <div class="contact-actions">
+            <button class="button button-primary" type="button" data-open-contact>お問い合わせフォームを開く</button>
+          </div>
+
+          <div class="potalk-note">
+            <span class="potalk-icon potalk-icon--emoji" aria-hidden="true"><span>🫖</span><span>📞</span></span>
+            <span class="potalk-icon potalk-icon--line" aria-hidden="true">
+              <svg class="potalk-teapot" viewBox="0 0 36 32" focusable="false">
+                <path d="M10 8h13M15 5h4M7 12h20v6c0 7-4 11-10 11S7 25 7 18v-6ZM7 15H3L1 11M27 14c8-2 9 10 1 10"/>
+              </svg>
+              <svg class="potalk-phone" viewBox="0 0 24 24" focusable="false">
+                <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2Z"/>
+              </svg>
+            </span>
+            <div>
+              <h3>ぽっと通話でお話ししませんか？</h3>
+              <p>ぽっと通話に「アサコの部屋」があれば、ぜひお入りください。タイミングが合えばいつでもお話しできます。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <img src="assets/favicon-thin.png" alt="" width="96" height="96">
+    <p>© アサコ　無断転載を禁じます。</p>
+  </footer>
+
+  <dialog class="contact-dialog" id="contact-dialog" aria-labelledby="dialog-title">
+    <div class="dialog-card">
+      <button class="dialog-close" type="button" aria-label="お問い合わせフォームを閉じる" data-close-contact>×</button>
+
+      <div class="dialog-form-view" data-form-view>
+        <p class="eyebrow">コンタクト</p>
+        <h2 id="dialog-title">お問い合わせ</h2>
+        <p class="dialog-lead">ご相談の段階でも大丈夫です。おわかりの範囲でお聴かせください。</p>
+
+        <!-- お問い合わせは指定のメールアドレスへ送信します。 -->
+        <form class="contact-form" id="contact-form" data-endpoint="https://formsubmit.co/ajax/a5aa5a.asako.a5aa5a@gmail.com" novalidate>
+          <input type="hidden" name="_subject" value="アサコ｜手書き万年筆文字サイトからのお問い合わせ">
+          <div class="form-grid">
+            <label>
+              <span>お名前 <em>必須</em></span>
+              <input type="text" name="name" autocomplete="name" required>
+            </label>
+            <label>
+              <span>メールアドレス <em>必須</em></span>
+              <input type="email" name="email" autocomplete="email" required>
+            </label>
+            <label>
+              <span>ご相談内容</span>
+              <select name="service">
+                <option value="">選択してください</option>
+                <option>名入れ・命名書</option>
+                <option>メッセージ・色紙</option>
+                <option>お手紙・便箋代筆</option>
+                <option>サイン・署名デザイン</option>
+                <option>その他のご依頼</option>
+              </select>
+            </label>
+            <label>
+              <span>ご希望のやり取り</span>
+              <select name="contact_method">
+                <option>メール</option>
+                <option>ぽっと通話を希望</option>
+                <option>どちらでも大丈夫</option>
+              </select>
+            </label>
+            <label class="form-wide">
+              <span>お問い合わせ内容 <em>必須</em></span>
+              <textarea name="message" rows="7" required placeholder="ご用途、贈り先のお相手、文字になさりたいおことば、ご希望時期など、おわかりの範囲でお書きください。"></textarea>
+            </label>
+          </div>
+
+          <label class="consent-row">
+            <input type="checkbox" name="consent" required>
+            <span>入力内容を確認し、送信することに同意します。</span>
+          </label>
+
+          <p class="form-status" role="status" aria-live="polite"></p>
+          <button class="button button-primary form-submit" type="submit">送信する</button>
+        </form>
+      </div>
+
+      <div class="dialog-thanks-view" data-thanks-view hidden>
+        <p class="eyebrow">サンクス</p>
+        <h2>お送りいただき、ありがとうございます。</h2>
+        <p>お問い合わせを受け付けました。内容を確認して、順番にお返事いたします。</p>
+        <div class="private-handwriting">
+          <img src="assets/thank-you-transparent.png" alt="お問い合わせいただき、ありがとうございました。">
+        </div>
+        <p class="thanks-note">この直筆メッセージは、フォーム送信後にだけ表示されます。</p>
+        <button class="button button-outline" type="button" data-close-contact>閉じる</button>
+      </div>
+    </div>
+  </dialog>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
