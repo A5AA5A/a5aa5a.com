@@ -2112,3 +2112,13 @@ main section[id]{scroll-margin-top:clamp(148px,13.75vw,286px)}
   top:calc(100% + 10px);
   bottom:auto;
 }
+
+/* iPhoneで左上ホームボタンを確実にページ最上部へ戻す */
+.top-anchor {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 1px;
+  pointer-events: none;
+}
