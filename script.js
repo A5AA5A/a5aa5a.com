@@ -8,7 +8,8 @@
   const formView = dialog?.querySelector('[data-form-view]');
   const thanksView = dialog?.querySelector('[data-thanks-view]');
   const formStatus = dialog?.querySelector('.form-status');
-
+  const homeLink = document.querySelector('[data-home-link]');
+  
   const setMenuOpen = (open) => {
     if (!menuButton || !mobileNav) return;
     menuButton.setAttribute('aria-expanded', String(open));
@@ -27,6 +28,36 @@
     setMenuOpen(menuButton.getAttribute('aria-expanded') !== 'true');
   });
 
+  // 左上のホームボタンを押したら、iPhone / Safariでも
+  // 必ずページ最上部まで戻す。
+  homeLink?.addEventListener('click', (event) => {
+    event.preventDefault();
+    closeMenu();
+
+    if (window.location.hash) {
+      history.replaceState(
+        null,
+        '',
+        `${window.location.pathname}${window.location.search}`
+      );
+    }
+
+    const jumpToTop = () => {
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'auto'
+      });
+
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+    };
+
+    jumpToTop();
+    requestAnimationFrame(jumpToTop);
+    window.setTimeout(jumpToTop, 60);
+  });
+  
   const scrollToSection = (link) => {
     const href = link.getAttribute('href');
     if (!href?.startsWith('#')) return;
