@@ -2122,3 +2122,11 @@ main section[id]{scroll-margin-top:clamp(148px,13.75vw,286px)}
   height: 1px;
   pointer-events: none;
 }
+
+.contact-note {
+  margin-top: 10px;
+  margin-bottom: 18px;
+  font-size: 0.9em;
+  color: var(--muted);
+  line-height: 1.8;
+}
