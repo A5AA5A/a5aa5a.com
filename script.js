@@ -331,17 +331,19 @@
   };
 
   const closeMessage = () => {
-    message.classList.remove('is-open');
+  /* メッセージとチップを同時に消す */
+  message.classList.remove('is-open');
+  secret.classList.remove('is-discovered');
 
-    chip.setAttribute('aria-expanded', 'false');
-    trigger.setAttribute('aria-expanded', 'false');
+  chip.setAttribute('aria-expanded', 'false');
+  trigger.setAttribute('aria-expanded', 'false');
 
-    window.setTimeout(() => {
-      if (!message.classList.contains('is-open')) {
-        message.hidden = true;
-      }
-    }, 700);
-  };
+  window.setTimeout(() => {
+    if (!message.classList.contains('is-open')) {
+      message.hidden = true;
+    }
+  }, 900);
+};
 
   /* PC：カタバミにマウスを重ねるとチップだけ出現 */
   secret.addEventListener('mouseenter', () => {
