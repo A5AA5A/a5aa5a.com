@@ -2488,7 +2488,7 @@ main section[id]{scroll-margin-top:clamp(148px,13.75vw,286px)}
 
 /* 「a5aa5aとは？」を少し下へ */
 .works-star-chip{
-  top:76% !important;
+  top:80% !important;
 }
 
 /* 本文の行間・段落間隔を他の文章に近づける */
