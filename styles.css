@@ -2130,3 +2130,57 @@ main section[id]{scroll-margin-top:clamp(148px,13.75vw,286px)}
   color: var(--muted);
   line-height: 1.8;
 }
+
+/* =========================================================
+   コンタクトボタンの比率を「お問い合わせフォームを開く」に統一
+   両端は常に高さの半分＝正確な半円
+   ========================================================= */
+
+:root {
+  --contact-button-ratio: 4.8;
+}
+
+/* PCヘッダーのコンタクト */
+@media (min-width: 1200px) {
+  .nav-cta {
+    width: calc(var(--header-mark-size) * var(--contact-button-ratio));
+    min-width: 0;
+    max-width: none;
+    height: var(--header-mark-size);
+    min-height: var(--header-mark-size);
+    padding-inline: 0;
+    border-radius: calc(var(--header-mark-size) / 2);
+    flex: 0 0 auto;
+  }
+}
+
+/* 4.8:1を保ったままではナビ全体が窮屈になる幅では
+   デスクトップナビを無理に詰めず、ハンバーガーへ切り替える */
+@media (min-width: 981px) and (max-width: 1199px) {
+  .global-nav {
+    display: none !important;
+  }
+
+  .menu-button {
+    display: flex !important;
+  }
+}
+
+/* ハンバーガーメニュー内のコンタクト */
+@media (max-width: 1199px) {
+  .mobile-contact-button {
+    --mobile-contact-height: clamp(64px, 18vw, 82px);
+
+    width: min(
+      calc(var(--mobile-contact-height) * var(--contact-button-ratio)),
+      calc(100vw - 64px)
+    );
+    height: var(--mobile-contact-height);
+    min-height: var(--mobile-contact-height);
+    padding: 0;
+    margin-inline: auto;
+    align-self: center;
+
+    border-radius: calc(var(--mobile-contact-height) / 2);
+  }
+}
