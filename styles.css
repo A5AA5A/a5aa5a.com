@@ -2369,5 +2369,116 @@ main section[id]{scroll-margin-top:clamp(148px,13.75vw,286px)}
     font-size:.82rem;
     line-height:1.85;
   }
+}/* =========================================================
+   ワークスの星：隠し「a5aa5aとは？」機能
+   既存の星の位置・大きさを維持
+   ========================================================= */
+
+.section-heading--works{
+  position:relative;
+}
+
+/* 星＋秘密機能全体の土台 */
+.works-star-secret{
+  position:absolute;
+  right:clamp(8px,10vw,92px);
+  top:50%;
+  width:clamp(58px,6vw,82px);
+  height:auto;
+  transform:translateY(-50%);
+  z-index:10;
+}
+
+/* 星をボタン化しても見た目を変えない */
+.works-star-trigger{
+  display:block;
+  width:100%;
+  padding:0;
+  margin:0;
+  border:0;
+  background:transparent;
+  cursor:pointer;
+}
+
+/* 以前の .works-star の絶対配置を解除 */
+.works-star-secret .works-star{
+  position:static !important;
+  display:block;
+  width:100% !important;
+  height:auto;
+  margin:0;
+  transform:none !important;
+}
+
+/* 「a5aa5aとは？」は最初は完全に隠す */
+.works-star-chip{
+  position:absolute;
+  right:calc(100% + 14px);
+  top:50%;
+
+  padding:8px 14px;
+  border:1px dashed rgba(82,47,96,.45);
+  border-radius:999px;
+
+  background:rgba(247,246,238,.97);
+  color:var(--hero-title);
+
+  font-family:"YuKyokasho","YuKyokasho Yoko","Klee",
+              "Hiragino Mincho ProN","Yu Mincho",serif;
+  font-size:.82rem;
+  letter-spacing:.05em;
+  white-space:nowrap;
+
+  cursor:pointer;
+
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+
+  transform:translate(6px,-50%) scale(.97);
+
+  transition:
+    opacity .9s ease,
+    transform .9s ease,
+    visibility 0s linear .9s;
+
+  box-shadow:0 6px 18px rgba(43,34,52,.08);
+}
+
+/* 本文も最初は隠す */
+.works-star-message{
+  position:absolute;
+  right:0;
+  top:calc(100% + 16px);
+
+  width:min(320px,78vw);
+  padding:18px 20px;
+
+  border:1px solid rgba(82,47,96,.12);
+  border-radius:18px;
+
+  background:rgba(247,246,238,.98);
+  color:var(--hero-title);
+
+  font-size:.9rem;
+  line-height:1.8;
+
+  box-shadow:0 14px 34px rgba(43,34,52,.14);
+
+  z-index:12;
+}
+
+/* 小さい画面では元の星と同じくらいのサイズへ */
+@media (max-width:620px){
+  .works-star-secret{
+    right:4px;
+    width:52px;
+  }
+
+  .works-star-chip{
+    right:0;
+    top:calc(100% + 10px);
+    transform:translateY(-4px) scale(.97);
+  }
 }
 
