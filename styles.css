@@ -2132,55 +2132,58 @@ main section[id]{scroll-margin-top:clamp(148px,13.75vw,286px)}
 }
 
 /* =========================================================
-   コンタクトボタンの比率を「お問い合わせフォームを開く」に統一
-   両端は常に高さの半分＝正確な半円
+   コンタクトボタン最終調整
+   文字端を半円の直径付近に揃える
    ========================================================= */
 
-:root {
-  --contact-button-ratio: 4.8;
-}
-
-/* PCヘッダーのコンタクト */
-@media (min-width: 1200px) {
+/* PCヘッダー */
+@media (min-width:981px) {
   .nav-cta {
-    width: calc(var(--header-mark-size) * var(--contact-button-ratio));
-    min-width: 0;
-    max-width: none;
-    height: var(--header-mark-size);
-    min-height: var(--header-mark-size);
-    padding-inline: 0;
-    border-radius: calc(var(--header-mark-size) / 2);
-    flex: 0 0 auto;
+    width:auto;
+    min-width:0;
+
+    height:var(--header-mark-size);
+    min-height:var(--header-mark-size);
+
+    /* 半円の半径ぶんだけ左右に余白を取る */
+    padding-left:calc(var(--header-mark-size) / 2);
+    padding-right:calc(var(--header-mark-size) / 2);
+
+    border-radius:calc(var(--header-mark-size) / 2);
+
+    flex:0 0 auto;
+    white-space:nowrap;
   }
 }
 
-/* 4.8:1を保ったままではナビ全体が窮屈になる幅では
-   デスクトップナビを無理に詰めず、ハンバーガーへ切り替える */
-@media (min-width: 981px) and (max-width: 1199px) {
-  .global-nav {
-    display: none !important;
-  }
 
-  .menu-button {
-    display: flex !important;
-  }
-}
-
-/* ハンバーガーメニュー内のコンタクト */
-@media (max-width: 1199px) {
+/* スマホ・タブレットのハンバーガーメニュー */
+@media (max-width:980px) {
   .mobile-contact-button {
-    --mobile-contact-height: clamp(64px, 18vw, 82px);
+    --mobile-contact-height:64px;
 
-    width: min(
-      calc(var(--mobile-contact-height) * var(--contact-button-ratio)),
-      calc(100vw - 64px)
-    );
-    height: var(--mobile-contact-height);
-    min-height: var(--mobile-contact-height);
-    padding: 0;
-    margin-inline: auto;
-    align-self: center;
+    width:max-content;
+    min-width:0;
+    max-width:calc(100% - 48px);
 
-    border-radius: calc(var(--mobile-contact-height) / 2);
+    height:var(--mobile-contact-height);
+    min-height:var(--mobile-contact-height);
+
+    padding-left:calc(var(--mobile-contact-height) / 2);
+    padding-right:calc(var(--mobile-contact-height) / 2);
+
+    border-radius:calc(var(--mobile-contact-height) / 2);
+
+    align-self:center;
+    margin-inline:auto;
+    white-space:nowrap;
+  }
+}
+
+
+/* 小さいスマートフォン */
+@media (max-width:480px) {
+  .mobile-contact-button {
+    --mobile-contact-height:58px;
   }
 }
