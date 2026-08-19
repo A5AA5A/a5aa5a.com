@@ -2226,3 +2226,121 @@ main section[id]{scroll-margin-top:clamp(148px,13.75vw,286px)}
     border: 1px solid rgba(82,47,96,.08);
   }
 }
+
+/* =========================================================
+   右上カタバミ：隠しウェルカムメッセージ
+   ========================================================= */
+
+.secret-katabami{
+  position:absolute;
+}
+
+/* カタバミ本体 */
+.secret-katabami-trigger{
+  display:block;
+  width:100%;
+  padding:0;
+  border:0;
+  background:transparent;
+  cursor:pointer;
+}
+
+.secret-katabami-trigger img{
+  display:block;
+  width:100%;
+  height:auto;
+}
+
+/* 最初は隠しておくチップ */
+.secret-katabami-chip{
+  position:absolute;
+  right:0;
+  top:calc(100% + 10px);
+
+  padding:8px 14px;
+  border:1px dashed rgba(82,47,96,.45);
+  border-radius:999px;
+
+  background:rgba(247,246,238,.96);
+  color:var(--hero-title);
+
+  font-family:"YuKyokasho","YuKyokasho Yoko","Klee","Hiragino Mincho ProN","Yu Mincho",serif;
+  font-size:.82rem;
+  letter-spacing:.06em;
+
+  white-space:nowrap;
+  cursor:pointer;
+
+  opacity:0;
+  visibility:hidden;
+  transform:translateY(-4px) scale(.97);
+
+  transition:
+    opacity .9s ease,
+    transform .9s ease,
+    visibility 0s linear .9s;
+
+  box-shadow:0 6px 18px rgba(43,34,52,.08);
+}
+
+/* チップが現れた状態 */
+.secret-katabami.is-discovered .secret-katabami-chip{
+  opacity:1;
+  visibility:visible;
+  transform:translateY(0) scale(1);
+
+  transition:
+    opacity .9s ease,
+    transform .9s ease,
+    visibility 0s;
+}
+
+/* メッセージ本体 */
+.secret-katabami-message{
+  position:absolute;
+  right:0;
+  top:calc(100% + 58px);
+
+  width:min(320px,78vw);
+  padding:18px 20px;
+
+  border:1px solid rgba(82,47,96,.12);
+  border-radius:18px;
+
+  background:rgba(247,246,238,.98);
+  color:var(--hero-title);
+
+  font-size:.9rem;
+  line-height:1.9;
+
+  box-shadow:0 14px 34px rgba(43,34,52,.14);
+
+  opacity:0;
+  transform:translateY(-5px) scale(.98);
+
+  transition:
+    opacity .7s ease,
+    transform .7s ease;
+}
+
+/* メッセージが開いた状態 */
+.secret-katabami-message.is-open{
+  opacity:1;
+  transform:translateY(0) scale(1);
+}
+
+/* スマホでは画面外にはみ出しにくくする */
+@media (max-width:760px){
+  .secret-katabami-chip{
+    right:0;
+    top:calc(100% + 8px);
+    font-size:.78rem;
+  }
+
+  .secret-katabami-message{
+    right:0;
+    top:calc(100% + 54px);
+    width:min(280px,78vw);
+    font-size:.86rem;
+  }
+}
