@@ -2482,3 +2482,33 @@ main section[id]{scroll-margin-top:clamp(148px,13.75vw,286px)}
   }
 }
 
+/* =========================================================
+   星の隠しメッセージ 微調整
+   ========================================================= */
+
+/* 「a5aa5aとは？」を少し下へ */
+.works-star-chip{
+  top:64% !important;
+}
+
+/* 本文の行間・段落間隔を他の文章に近づける */
+.works-star-message{
+  line-height:1.75;
+}
+
+.works-star-message p{
+  margin:0;
+}
+
+.works-star-message p + p{
+  margin-top:.7em;
+}
+
+.works-star-message p + p{
+  margin-top:.55em;
+}
+
+.works-star-message p:last-child{
+  margin-top:.35em;
+}
+
