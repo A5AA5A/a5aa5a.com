@@ -293,3 +293,106 @@
     });
   });
 })();
+
+/* =========================================================
+   右上カタバミ：隠しウェルカムメッセージ
+   PC：ホバーでチップ表示 → クリックで本文
+   スマホ：1回タップでチップ表示 → 2回目で本文
+   ========================================================= */
+
+(() => {
+  const secret = document.querySelector('.secret-katabami');
+  if (!secret) return;
+
+  const trigger = secret.querySelector('.secret-katabami-trigger');
+  const chip = secret.querySelector('.secret-katabami-chip');
+  const message = secret.querySelector('.secret-katabami-message');
+
+  if (!trigger || !chip || !message) return;
+
+  const isTouchLike = () =>
+    window.matchMedia('(hover: none), (pointer: coarse)').matches;
+
+  const discover = () => {
+    secret.classList.add('is-discovered');
+  };
+
+  const openMessage = () => {
+    secret.classList.add('is-discovered');
+
+    message.hidden = false;
+
+    requestAnimationFrame(() => {
+      message.classList.add('is-open');
+    });
+
+    chip.setAttribute('aria-expanded', 'true');
+    trigger.setAttribute('aria-expanded', 'true');
+  };
+
+  const closeMessage = () => {
+    message.classList.remove('is-open');
+
+    chip.setAttribute('aria-expanded', 'false');
+    trigger.setAttribute('aria-expanded', 'false');
+
+    window.setTimeout(() => {
+      if (!message.classList.contains('is-open')) {
+        message.hidden = true;
+      }
+    }, 700);
+  };
+
+  /* PC：カタバミにマウスを重ねるとチップだけ出現 */
+  secret.addEventListener('mouseenter', () => {
+    if (!isTouchLike()) {
+      discover();
+    }
+  });
+
+  /* カタバミ本体 */
+  trigger.addEventListener('click', (event) => {
+    event.preventDefault();
+
+    if (isTouchLike()) {
+      /* スマホ1回目：チップだけ表示 */
+      if (!secret.classList.contains('is-discovered')) {
+        discover();
+        return;
+      }
+
+      /* すでにチップが見えている場合は本文を開く */
+      if (!message.classList.contains('is-open')) {
+        openMessage();
+      } else {
+        closeMessage();
+      }
+    }
+  });
+
+  /* PCもスマホも、チップを押したら本文表示 */
+  chip.addEventListener('click', (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+
+    if (message.classList.contains('is-open')) {
+      closeMessage();
+    } else {
+      openMessage();
+    }
+  });
+
+  /* 外側をタップ・クリックしたら本文だけ閉じる */
+  document.addEventListener('click', (event) => {
+    if (!secret.contains(event.target)) {
+      closeMessage();
+    }
+  });
+
+  /* Escキーでも閉じられるようにする */
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+      closeMessage();
+    }
+  });
+})();
