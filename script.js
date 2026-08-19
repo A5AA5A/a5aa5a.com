@@ -397,27 +397,3 @@
   });
 })();
 
-/* =========================================================
-   カタバミの隠しメッセージをメイン文字より前面へ
-   ========================================================= */
-
-.secret-katabami{
-  z-index:20 !important;
-}
-
-.secret-katabami-chip{
-  z-index:21;
-}
-
-.secret-katabami-message{
-  z-index:22;
-}
-
-@media (max-width:760px){
-  .secret-katabami-message{
-    width:min(230px,68vw);
-    right:-2px;
-    padding:16px 17px;
-    font-size:.82rem;
-    line-height:1.85;
-
