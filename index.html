@@ -438,3 +438,31 @@
   <script src="script.js" defer></script>
 </body>
 </html>
+
+/* =========================================================
+   スマホ：「実はこんな人」の内容を画面内に収める
+   ========================================================= */
+
+@media (max-width:760px){
+
+  .secret-tip--left .tip-popover{
+    left:0 !important;
+    right:auto !important;
+
+    width:min(320px, calc(100vw - 40px)) !important;
+    max-width:calc(100vw - 40px) !important;
+
+    transform:translateY(7px) scale(.98) !important;
+    transform-origin:left bottom;
+  }
+
+  .secret-tip--left:hover .tip-popover,
+  .secret-tip--left:focus-within .tip-popover,
+  .secret-tip--left.is-open .tip-popover{
+    transform:translateY(0) scale(1) !important;
+  }
+
+  .secret-tip--left.is-fading .tip-popover{
+    transform:translateY(7px) scale(.98) !important;
+  }
+}
