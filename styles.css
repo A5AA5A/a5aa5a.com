@@ -2133,16 +2133,12 @@ main section[id]{scroll-margin-top:clamp(148px,13.75vw,286px)}
 
 /* =========================================================
    コンタクトボタン最終調整
-   ファビコンと同じ高さを保ち、横長のカプセル型にする
+   PC：ファビコンと同じ高さ
+   スマホ：横に伸びすぎない
+   両端は正確な半円
    ========================================================= */
 
-@media (min-width:981px) {
-  /* =========================================================
-   PCコンタクトボタン
-   ファビコンと同じ高さ＋両端は正確な半円
-   文字の外側に少し直線部分を残す
-   ========================================================= */
-
+/* PC */
 @media (min-width:981px) {
   .global-nav > .nav-cta {
     height: var(--header-mark-size);
@@ -2152,15 +2148,45 @@ main section[id]{scroll-margin-top:clamp(148px,13.75vw,286px)}
     min-width: 0;
 
     /*
-      半径 + 12px
-      → 文字の端より12px外側に半円の直径線が来る
+      文字の左右に少し直線部分を残してから、
+      半円へつなげる
     */
-    padding-left: calc(var(--header-mark-size) / 2 + 12px);
-    padding-right: calc(var(--header-mark-size) / 2 + 12px);
+    padding-left: calc(var(--header-mark-size) / 2 + 28px) !important;
+    padding-right: calc(var(--header-mark-size) / 2 + 28px) !important;
 
     border-radius: calc(var(--header-mark-size) / 2);
 
     flex: 0 0 auto;
+    white-space: nowrap;
+  }
+}
+
+
+/* スマホ・タブレット */
+@media (max-width:980px) {
+  .mobile-nav > .mobile-contact-button {
+    --mobile-contact-height: 64px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: max-content !important;
+    min-width: 0 !important;
+    max-width: calc(100% - 48px);
+
+    height: var(--mobile-contact-height);
+    min-height: var(--mobile-contact-height);
+
+    padding-left: calc(var(--mobile-contact-height) / 2 + 18px) !important;
+    padding-right: calc(var(--mobile-contact-height) / 2 + 18px) !important;
+
+    border-radius: calc(var(--mobile-contact-height) / 2);
+
+    align-self: center;
+    margin-left: auto;
+    margin-right: auto;
+
     white-space: nowrap;
   }
 }
