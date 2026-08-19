@@ -2137,16 +2137,26 @@ main section[id]{scroll-margin-top:clamp(148px,13.75vw,286px)}
    ========================================================= */
 
 @media (min-width:981px) {
-  .nav-cta {
+  /* =========================================================
+   PCコンタクトボタン
+   ファビコンと同じ高さ＋両端は正確な半円
+   文字の外側に少し直線部分を残す
+   ========================================================= */
+
+@media (min-width:981px) {
+  .global-nav > .nav-cta {
     height: var(--header-mark-size);
     min-height: var(--header-mark-size);
 
     width: auto;
     min-width: 0;
 
-    /* 文字の左右端より少し外側に半円の直径線が来る */
-    padding-left: calc(var(--header-mark-size) / 2 + 14px);
-    padding-right: calc(var(--header-mark-size) / 2 + 14px);
+    /*
+      半径 + 12px
+      → 文字の端より12px外側に半円の直径線が来る
+    */
+    padding-left: calc(var(--header-mark-size) / 2 + 12px);
+    padding-right: calc(var(--header-mark-size) / 2 + 12px);
 
     border-radius: calc(var(--header-mark-size) / 2);
 
