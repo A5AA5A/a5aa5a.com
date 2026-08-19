@@ -90,9 +90,35 @@
 
   <main>
     <section class="hero hero--v18" aria-label="メインビジュアル">
-      <div class="hero-eyecatch" aria-label="酢漿草のあしらい">
-        <img src="assets/katabami-transparent.png" alt="" aria-hidden="true">
-      </div>
+      <div class="hero-eyecatch secret-katabami">
+  <button
+    class="secret-katabami-trigger"
+    type="button"
+    aria-expanded="false"
+    aria-controls="katabami-welcome"
+    aria-label="酢漿草のひみつ"
+  >
+    <img src="assets/katabami-transparent.png" alt="" aria-hidden="true">
+  </button>
+
+  <button
+    class="secret-katabami-chip"
+    type="button"
+    aria-expanded="false"
+    aria-controls="katabami-welcome"
+  >
+    ひみつのメッセージ
+  </button>
+
+  <div
+    id="katabami-welcome"
+    class="secret-katabami-message"
+    hidden
+  >
+    見つけてくださって、ありがとうございます。<br>
+    アサコの手書き万年筆文字へ、ようこそ。
+  </div>
+</div>
 
       <div class="hero-message-cluster" aria-label="アサコの手書き万年筆文字、こころにとどく、ことばたち">
         <p class="hero-side-label hero-side-label--left" aria-label="手書き万年筆文字"><span aria-hidden="true">手</span><span aria-hidden="true">書</span><span aria-hidden="true">き</span><span aria-hidden="true">万</span><span aria-hidden="true">年</span><span aria-hidden="true">筆</span><span aria-hidden="true">文</span><span aria-hidden="true">字</span></p>
