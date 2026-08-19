@@ -2301,7 +2301,7 @@ main section[id]{scroll-margin-top:clamp(148px,13.75vw,286px)}
   right:0;
   top:calc(100% + 66px);
 
-  width:min(280px,72vw);
+  width:min(250px,68vw);
   padding:18px 20px;
 
   border:1px solid rgba(82,47,96,.12);
