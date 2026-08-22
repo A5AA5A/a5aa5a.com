@@ -2540,3 +2540,16 @@ main section[id]{scroll-margin-top:clamp(148px,13.75vw,286px)}
   }
 }
 
+/* =========================================================
+   スマホ：コンタクトボタンをメニューカード内に収める
+   ========================================================= */
+@media (max-width:980px){
+  .mobile-nav .nav-contact{
+    width:100% !important;
+    max-width:100% !important;
+    box-sizing:border-box !important;
+    margin-left:auto !important;
+    margin-right:auto !important;
+  }
+}
+
