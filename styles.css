@@ -2567,3 +2567,19 @@ main section[id]{scroll-margin-top:clamp(148px,13.75vw,286px)}
   }
 }
 
+/* =========================================================
+   スマホ：本文の不自然な早すぎる改行を防ぐ
+   ========================================================= */
+@media (max-width:760px){
+  .about-copy p,
+  .section-lead,
+  .service-card p,
+  .example-copy p,
+  .flow-grid p,
+  .feature-grid p,
+  .contact-copy p,
+  .potalk-note p{
+    text-wrap:wrap !important;
+  }
+}
+
