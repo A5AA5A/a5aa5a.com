@@ -2807,3 +2807,7 @@ main section[id]{scroll-margin-top:clamp(148px,13.75vw,286px)}
     gap: 44px;
   }
 }
+
+　.fountain-pen-guide {
+  　padding-top: 48px;
+　}
