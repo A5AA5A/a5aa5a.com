@@ -2583,3 +2583,111 @@ main section[id]{scroll-margin-top:clamp(148px,13.75vw,286px)}
   }
 }
 
+/* ========================================
+   万年筆を楽しむ
+======================================== */
+
+.fountain-pen-guide {
+  padding: 96px 24px;
+}
+
+.fountain-pen-guide__inner {
+  width: min(1120px, 100%);
+  margin: 0 auto;
+}
+
+.fountain-pen-guide__heading {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.fountain-pen-guide__heading h2 {
+  margin: 0 0 20px;
+  font-size: clamp(28px, 3vw, 40px);
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 0.08em;
+  color: var(--text-color);
+}
+
+.fountain-pen-guide__heading p {
+  max-width: 680px;
+  margin: 0 auto;
+  font-size: clamp(16px, 1.6vw, 18px);
+  line-height: 2;
+  color: var(--text-color);
+}
+
+.fountain-pen-guide__links {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 48px;
+}
+
+.fountain-pen-guide__item {
+  display: block;
+  color: var(--text-color);
+  text-decoration: none;
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+}
+
+.fountain-pen-guide__item:hover {
+  opacity: 0.72;
+  transform: translateY(-2px);
+}
+
+.fountain-pen-guide__item h3 {
+  margin: 0 0 18px;
+  font-size: clamp(20px, 2vw, 25px);
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.05em;
+}
+
+.fountain-pen-guide__item p {
+  margin: 0 0 20px;
+  font-size: clamp(16px, 1.5vw, 18px);
+  line-height: 1.9;
+}
+
+.fountain-pen-guide__item span {
+  display: inline-block;
+  padding-bottom: 3px;
+  font-size: 16px;
+  color: var(--main-color);
+  border-bottom: 1px solid currentColor;
+}
+
+/* タブレット */
+@media (max-width: 900px) {
+  .fountain-pen-guide {
+    padding: 80px 32px;
+  }
+
+  .fountain-pen-guide__links {
+    gap: 32px;
+  }
+}
+
+/* スマホ */
+@media (max-width: 680px) {
+  .fountain-pen-guide {
+    padding: 64px 24px;
+  }
+
+  .fountain-pen-guide__heading {
+    margin-bottom: 44px;
+    text-align: left;
+  }
+
+  .fountain-pen-guide__heading p {
+    margin: 0;
+  }
+
+  .fountain-pen-guide__links {
+    grid-template-columns: 1fr;
+    gap: 44px;
+  }
+}
